@@ -16,7 +16,7 @@ Ingresar a la carpeta library, abrir una terminal y seguir los siguientes pasos:
 ### $ sudo make install
 ### $ sudo ldconfig
 
-Luego de completar los pasos anteriores, se procede a acceder a la carpeta modules y se abre una terminal y se realizan los siguientes pasos:
+Luego de completar los pasos anteriores, se procede a acceder a la carpeta modules, se abre una terminal y se realizan los siguientes pasos:
 
 ### $ mkdir build
 ### $ cd build
