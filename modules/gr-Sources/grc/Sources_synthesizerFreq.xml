@@ -1,0 +1,63 @@
+<block>
+  <name>synthesizerFreq</name>
+  <key>synthesizerFreq</key>
+  <category>[Sources]</category>
+  <import>import Sources</import>
+  <make>Sources.synthesizerFreq(
+    Bits=$Bits,
+    Delta=$Delta,
+    Carrier=$Carrier,
+    Data_Size=$Data_Size,
+)</make>
+  <callback>set_Bits($Bits)</callback>
+  <callback>set_Delta($Delta)</callback>
+  <callback>set_Carrier($Carrier)</callback>
+  <callback>set_Data_Size($Data_Size)</callback>
+  <param>
+    <name>Bits</name>
+    <key>Bits</key>
+    <value>2</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>Data Size</name>
+    <key>Data_Size</key>
+    <value>8</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>Delta Freq.</name>
+    <key>Delta</key>
+    <value>1000</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>Carrier Freq.</name>
+    <key>Carrier</key>
+    <value>10000</value>
+    <type>raw</type>
+  </param>
+  <source>
+    <name>out</name>
+    <type>float</type>
+    <vlen>1</vlen>
+  </source>
+  <doc>
+       El algoritmo implementado describe un método para generar la señal de ensanchamiento de frecuencias en FH-SS.
+       M.C. Herrera
+       Ingeniería Electrónica UNIQUINDIO
+       2018
+
+       parámetros:
+       Bits -> bits por segundo
+       Data Size -> Tamaño de los datos
+       Delta Freq -> Frecueccia Delta
+       Carrier Freq -> Frecuencia central
+
+       Entrada:
+       Ninguna
+
+       Salida:
+       float -> posee un tamaño fijo de 8192 muestras, señal de ensanchamiento de FH-SS
+       </doc>
+</block>

@@ -1,0 +1,30 @@
+INCLUDE(FindPkgConfig)
+PKG_CHECK_MODULES(PC_MULTIPLIERS Multipliers)
+
+FIND_PATH(
+    MULTIPLIERS_INCLUDE_DIRS
+    NAMES Multipliers/api.h
+    HINTS $ENV{MULTIPLIERS_DIR}/include
+        ${PC_MULTIPLIERS_INCLUDEDIR}
+    PATHS ${CMAKE_INSTALL_PREFIX}/include
+          /usr/local/include
+          /usr/include
+)
+
+FIND_LIBRARY(
+    MULTIPLIERS_LIBRARIES
+    NAMES gnuradio-Multipliers
+    HINTS $ENV{MULTIPLIERS_DIR}/lib
+        ${PC_MULTIPLIERS_LIBDIR}
+    PATHS ${CMAKE_INSTALL_PREFIX}/lib
+          ${CMAKE_INSTALL_PREFIX}/lib64
+          /usr/local/lib
+          /usr/local/lib64
+          /usr/lib
+          /usr/lib64
+)
+
+INCLUDE(FindPackageHandleStandardArgs)
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(MULTIPLIERS DEFAULT_MSG MULTIPLIERS_LIBRARIES MULTIPLIERS_INCLUDE_DIRS)
+MARK_AS_ADVANCED(MULTIPLIERS_LIBRARIES MULTIPLIERS_INCLUDE_DIRS)
+

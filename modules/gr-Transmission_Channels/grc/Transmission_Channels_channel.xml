@@ -1,0 +1,62 @@
+<block>
+  <name>channel</name>
+  <key>channel</key>
+  <category>[Transmission_Channels]</category>
+  <import>import Transmission_Channels</import>
+  <make>Transmission_Channels.channel(
+    k=$k,
+    tchannel=$tchannel,
+    voltage=$voltage,
+)</make>
+  <callback>set_k($k)</callback>
+  <callback>set_tchannel($tchannel)</callback>
+  <callback>set_voltage($voltage)</callback>
+  <param>
+    <name>Rician k factor</name>
+    <key>k</key>
+    <value>4.0</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>channel type</name>
+    <key>tchannel</key>
+    <value>1</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>Gaussian noise voltage</name>
+    <key>voltage</key>
+    <value>0</value>
+    <type>raw</type>
+  </param>
+  <sink>
+    <name>in</name>
+    <type>float</type>
+    <vlen>1</vlen>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>float</type>
+    <vlen>1</vlen>
+  </source>
+  <doc>
+    El algoritmo implementado describe un canal compuesto de ruido Gaussiano, Rician y Rayleigh .
+     M.C. Herrera
+     Ingeniería Electrónica UNIQUINDIO
+     2018
+
+     parámetro:
+     k -> Factor Rician
+     Voltage -> Amplitud del ruido Gaussiano
+     tchannel -> Parámetro que permite elegir el canal de ruido
+     1 -> Gaussiano
+     2 -> Rician
+     3 -> Rayleigh
+
+     Entrada:
+     Complex -> in0
+
+     Salida:
+     Complex -> Señal con ruido Gaussiano, Rician o Rayleigh.
+  </doc>
+</block>

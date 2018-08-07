@@ -1,0 +1,95 @@
+<block>
+  <name>PayloadDemodulator</name>
+  <key>PayloadDemodulator</key>
+  <category>[OFDM]</category>
+  <import>import OFDM</import>
+  <make>OFDM.PayloadDemodulator(
+    fft_tam=$fft_tam,
+    length_tag_key=$length_tag_key,
+    occupied_carriers=$occupied_carriers,
+    paquete_tam=$paquete_tam,
+    payload_mod=$payload_mod,
+    pilot_carriers=$pilot_carriers,
+    pilot_symbols=$pilot_symbols,
+)</make>
+  <callback>set_fft_tam($fft_tam)</callback>
+  <callback>set_length_tag_key($length_tag_key)</callback>
+  <callback>set_occupied_carriers($occupied_carriers)</callback>
+  <callback>set_paquete_tam($paquete_tam)</callback>
+  <callback>set_payload_mod($payload_mod)</callback>
+  <callback>set_pilot_carriers($pilot_carriers)</callback>
+  <callback>set_pilot_symbols($pilot_symbols)</callback>
+  <param>
+    <name>fft_size</name>
+    <key>fft_tam</key>
+    <value>64</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>Lenght Tag</name>
+    <key>length_tag_key</key>
+    <value>"paquete_tam"</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>occupied_carriers</name>
+    <key>occupied_carriers</key>
+    <value>(range(-26, -21) + range(-20, -7) + range(-6, 0) + range(1, 7) + range(8, 21) + range(22, 27),)</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>Package Size</name>
+    <key>paquete_tam</key>
+    <value>96</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>payload_mod</name>
+    <key>payload_mod</key>
+    <value>digital.constellation_bpsk()</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>pilot_carriers</name>
+    <key>pilot_carriers</key>
+    <value>((-21, -7, 7, 21,),)</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>pilot_symbols</name>
+    <key>pilot_symbols</key>
+    <value>((1, 1, 1, -1,),)</value>
+    <type>raw</type>
+  </param>
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+    <vlen>64</vlen>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>float</type>
+    <vlen>1</vlen>
+  </source>
+  <doc>
+	 El algoritmo implementado demodulador de carga útil 16-QAM o BPSK para OFDM.
+	 M.C. Herrera
+	 Ingeniería Electrónica UNIQUINDIO
+	 2018
+
+	 parámetro:
+	 Lenght Tag-> Tamaño de la etiqueta
+	 occupied_carriers -> Portadoras ocupadas
+	 fft_size -> Tamaño de la FFT
+   Package_size -> Tamaño del paquete
+   Payload Modulation -> Constelación de la modulación BPSK o 16-QAM
+   pilot_carriers -> Portadoras piloto
+	 pilot_symbols -> Símbolos piloto
+
+	 Entrada:
+	 in0 -> vector de Complex
+
+	 Salida:
+	 float -> Señal de encabezado modulada en 16QAM o BPSK.
+</doc>
+</block>

@@ -1,0 +1,68 @@
+<block>
+  <name>HeaderModulator</name>
+  <key>HeaderModulator</key>
+  <category>[OFDM]</category>
+  <import>import OFDM</import>
+  <make>OFDM.HeaderModulator(
+    length_tag_key=$length_tag_key,
+    mod_encabezado=$mod_encabezado,
+    occupied_carriers=$occupied_carriers,
+    package_size=$package_size,
+)</make>
+  <callback>set_length_tag_key($length_tag_key)</callback>
+  <callback>set_mod_encabezado($mod_encabezado)</callback>
+  <callback>set_occupied_carriers($occupied_carriers)</callback>
+  <callback>set_package_size($package_size)</callback>
+  <param>
+    <name>Lenght tag</name>
+    <key>length_tag_key</key>
+    <value>"package_size"</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>Header Modulation</name>
+    <key>mod_encabezado</key>
+    <value>digital.constellation_bpsk()</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>Occupied Carriers</name>
+    <key>occupied_carriers</key>
+    <value>(range(-27, -21) + range(-20, -7) + range(-6, 0) + range(1, 7) + range(8, 21) + range(22, 28),)</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>package_size</name>
+    <key>package_size</key>
+    <value>96</value>
+    <type>raw</type>
+  </param>
+  <sink>
+    <name>in</name>
+    <type>byte</type>
+    <vlen>1</vlen>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>complex</type>
+    <vlen>1</vlen>
+  </source>
+  <doc>
+    El algoritmo implementado el modulador del encabezado BPSK para OFDM.
+    M.C. Herrera
+    Ingeniería Electrónica UNIQUINDIO
+    2018
+
+    parámetro:
+    Lenght tag -> Etiqueta de longitud
+    Header Modulation -> Constelación de la modulación
+    Occupied Carriers -> Portadoras ocupadas
+    samp_rate-> Tasa de muestreo
+
+    Entrada:
+    in0 -> vector de Complex
+
+    Salida:
+    UChar -> Señal de encabezado demodulada.
+  </doc>
+</block>

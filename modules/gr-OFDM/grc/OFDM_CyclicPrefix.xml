@@ -1,0 +1,69 @@
+<block>
+  <name>Cyclicprefix</name>
+  <key>CyclicPrefix</key>
+  <category>[OFDM]</category>
+  <import>import OFDM</import>
+  <make>OFDM.CyclicPrefix(
+    fft_size=$fft_size,
+    paquete_tam=$paquete_tam,
+    rolloff=$rolloff,
+    samp_rate=$samp_rate,
+)</make>
+  <callback>set_fft_size($fft_size)</callback>
+  <callback>set_paquete_tam($paquete_tam)</callback>
+  <callback>set_rolloff($rolloff)</callback>
+  <callback>set_samp_rate($samp_rate)</callback>
+  <param>
+    <name>fft_size</name>
+    <key>fft_size</key>
+    <value>64</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>package_size</name>
+    <key>paquete_tam</key>
+    <value>96</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>Rolloff</name>
+    <key>rolloff</key>
+    <value>0</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>samp_rate</name>
+    <key>samp_rate</key>
+    <value>100000</value>
+    <type>raw</type>
+  </param>
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+    <vlen>64</vlen>
+    <optional>1</optional>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>complex</type>
+    <vlen>1</vlen>
+  </source>
+  <doc>
+    El algoritmo implementado para agregar prefijo cíclico.
+   M.C. Herrera
+   Ingeniería Electrónica UNIQUINDIO
+   2018
+
+   parámetro:
+   fft_size -> Tamaño de la FFt
+   package_size -> Tamaño del paquete
+   Rolloff -> rolloff
+   samp_rate-> Tasa de muestreo
+
+   Entrada:
+   in0 -> Complex
+
+   Salida:
+   Complex -> Señal con prefijo cíclico.
+ </doc>
+</block>

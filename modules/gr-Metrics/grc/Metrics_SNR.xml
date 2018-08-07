@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<block>
+  <name>SNR</name>
+  <key>Metrics_SNR</key>
+  <category>[Metrics]</category>
+  <import>import Metrics</import>
+  <make>Metrics.SNR()</make>
+
+
+  <sink>
+    <name>Signal</name>
+    <type>float</type>
+  </sink>
+  <sink>
+    <name>Noise</name>
+    <type>float</type>
+  </sink>
+
+
+  <source>
+    <name>SNR</name>
+    <type>float</type>
+  </source>
+  <doc>
+       El algoritmo implementado describe un método para calcular la relación señal a ruido SNR.
+       M.C. Herrera
+       Ingeniería Electrónica UNIQUINDIO
+       2018
+
+       parámetro:
+       Ninguno
+
+       Entrada:
+       in0 -> Señal en RF
+       in1-> Señal de ruido
+
+       Salida:
+       float -> posee un tamaño fijo de 8192 muestras, relación señal a ruido en dB.
+
+       </doc>
+</block>

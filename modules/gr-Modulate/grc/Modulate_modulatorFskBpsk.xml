@@ -1,0 +1,43 @@
+<block>
+  <name>modulatorFskBpsk</name>
+  <key>modulatorFskBpsk</key>
+  <category>[Modulate]</category>
+  <import>import Modulate</import>
+  <make>Modulate.modulatorFskBpsk(
+    M=$M,
+)</make>
+  <callback>set_M($M)</callback>
+  <param>
+    <name>Modulation Type</name>
+    <key>M</key>
+    <value>1</value>
+    <type>raw</type>
+  </param>
+  <sink>
+    <name>in</name>
+    <type>float</type>
+    <vlen>1</vlen>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>float</type>
+    <vlen>1</vlen>
+  </source>
+  <doc>
+    El algoritmo implementado describe la modulación BPSK y FSK.
+       M.C. Herrera
+       Ingeniería Electrónica UNIQUINDIO
+       2018
+
+       parámetro:
+       Modulation Type-> Variable que permite cambiar el tipo de modulación
+       1-> FSK
+       2-> BPSK
+
+       Entrada:
+       in0 -> Float
+
+       Salida:
+       float -> posee un tamaño fijo de 8192 muestras, señal modulada en BPSK o FSK
+  </doc>
+</block>

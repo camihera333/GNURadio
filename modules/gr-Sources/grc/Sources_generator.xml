@@ -1,0 +1,44 @@
+<block>
+  <name>generator</name>
+  <key>generator</key>
+  <category>[Sources]</category>
+  <import>import Sources</import>
+  <make>Sources.generator(
+    Vector=$Vector,
+)</make>
+  <callback>set_Vector($Vector)</callback>
+  <param>
+    <name>Vector</name>
+    <key>Vector</key>
+    <value>[1,0,0,0,0,0,0,0]</value>
+    <type>raw</type>
+  </param>
+  <source>
+    <name>out</name>
+    <type>float</type>
+    <vlen>1</vlen>
+  </source>
+  <doc>
+       El algoritmo implementado describe un método para generar vectores de información.
+       M.C. Herrera
+       Ingeniería Electrónica UNIQUINDIO
+       2018
+
+       parámetro:
+       int_vector  Vector -> Vector de información
+
+       Entrada:
+       Ninguna
+
+       Salida:
+       float -> posee un tamaño fijo de 8192 muestras, es una interpolación del vector establecido en el parámetro "Vector".
+
+       Sintaxis:
+       Vector -> Los elementos deben ir entre corchetes [], separados entre sí por comas.
+
+       Ejemplo:
+       Vector            [1,0,1,1,0,0,0,0]
+       tamaño Vector     8
+       tamaño Salida     8192
+       </doc>
+</block>

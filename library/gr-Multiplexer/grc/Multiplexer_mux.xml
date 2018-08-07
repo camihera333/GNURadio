@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<block>
+  <name>mux</name>
+  <key>Multiplexer_mux</key>
+  <category>[Multiplexer]</category>
+  <import>import Multiplexer</import>
+  <make>Multiplexer.mux($sel)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+   <param>
+     <name>Channel Type</name>
+     <key>sel</key>
+     <type>int</type>
+   </param>
+
+   <!-- Make one 'sink' node per input. Sub-nodes:
+        * name (an identifier for the GUI)
+        * type
+        * vlen
+        * optional (set to 1 for optional inputs) -->
+   <sink>
+     <name>in</name>
+     <type>float</type>
+   </sink>
+   <sink>
+     <name>in1</name>
+     <type>float</type>
+   </sink>
+   <sink>
+     <name>in2</name>
+     <type>float</type>
+   </sink>
+
+   <!-- Make one 'source' node per output. Sub-nodes:
+        * name (an identifier for the GUI)
+        * type
+        * vlen
+        * optional (set to 1 for optional inputs) -->
+   <source>
+     <name>out</name>
+     <type>float</type>
+   </source>
+</block>

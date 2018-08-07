@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<block>
+  <name>frecSynthesizer</name>
+  <key>Generators_frecSynthesizer</key>
+  <category>[Generators]</category>
+  <import>import Generators</import>
+  <make>Generators.frecSynthesizer($fc, $fd, $bps,$tam_info)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+       <param>
+         <name>Data Size</name>
+         <key>tam_info</key>
+         <type>int</type>
+       </param>
+   <param>
+     <name>Bits</name>
+     <key>bps</key>
+     <type>int</type>
+   </param>
+
+ 	<param>
+ 		<name>Carrier Freq.</name>
+     <key>fc</key>
+     <type>float</type>
+   </param>
+
+ 	<param>
+ 		  <name>Delta Freq.</name>
+ 		  <key>fd</key>
+ 		  <type>float</type>
+ 		</param>
+
+   <!-- Make one 'sink' node per input. Sub-nodes:
+        * name (an identifier for the GUI)
+        * type
+        * vlen
+        * optional (set to 1 for optional inputs) -->
+
+   <!-- Make one 'source' node per output. Sub-nodes:
+        * name (an identifier for the GUI)
+        * type
+        * vlen
+        * optional (set to 1 for optional inputs) -->
+   <source>
+     <name>out</name>
+     <type>float</type>
+   </source>
+ </block>

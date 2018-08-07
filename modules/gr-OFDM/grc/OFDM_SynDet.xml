@@ -1,0 +1,47 @@
+<block>
+  <name>SynDet</name>
+  <key>SynDet</key>
+  <category>[OFDM]</category>
+  <import>import OFDM</import>
+  <make>OFDM.SynDet(
+    fft_tam=$fft_tam,
+)</make>
+  <callback>set_fft_tam($fft_tam)</callback>
+  <param>
+    <name>fft_tam</name>
+    <key>fft_tam</key>
+    <value>64</value>
+    <type>raw</type>
+  </param>
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+    <vlen>1</vlen>
+  </sink>
+  <source>
+    <name>sync</name>
+    <type>complex</type>
+    <vlen>1</vlen>
+  </source>
+  <source>
+    <name>det</name>
+    <type>byte</type>
+    <vlen>1</vlen>
+  </source>
+  <doc>
+    Algoritmo implementado de detección y sincronización para OFDM.
+    	 M.C. Herrera
+    	 Ingeniería Electrónica UNIQUINDIO
+    	 2018
+
+    	 parámetro:
+    	fft_size -> Tamaño de la FFT
+
+    	 Entrada:
+    	 in0 -> Complex
+
+    	 Salida:
+    	 out0 -> Complex Señal de sincronización
+       out1 -> Señal de detección
+  </doc>
+</block>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<block>
+  <name>rankPosZero</name>
+  <key>Ranges_rankPosZero</key>
+  <category>[Ranges]</category>
+  <import>import Ranges</import>
+  <make>Ranges.rankPosZero()</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+   <sink>
+     <name>in</name>
+     <type>float</type>
+   </sink>
+
+   <!-- Make one 'source' node per output. Sub-nodes:
+        * name (an identifier for the GUI)
+        * type
+        * vlen
+        * optional (set to 1 for optional inputs) -->
+   <source>
+     <name>out</name>
+     <type>float</type>
+   </source>
+   <doc>
+      El algoritmo pasa la señal de -1 y 1 al rango de 0 a 1.
+   M.C. Herrera
+   Ingeniería Electrónica UNIQUINDIO
+   2018
+
+   parámetro:
+   Ninguno
+
+   Entrada:
+   in0 -> float, señal binaria (-1 y 1)
+
+   Salida:
+   out -> float, Señal binario (0 y 1)
+  </doc>
+</block>

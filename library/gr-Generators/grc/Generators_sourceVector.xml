@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<block>
+  <name>sourceVector</name>
+  <key>Generators_sourceVector</key>
+  <category>[Generators]</category>
+  <import>import Generators</import>
+  <make>Generators.sourceVector($invector)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+     <param>
+       <name>Vector</name>
+       <key>invector</key>
+       <type>int_vector</type>
+     </param>
+
+
+     <!-- Make one 'sink' node per input. Sub-nodes:
+          * name (an identifier for the GUI)
+          * type
+          * vlen
+          * optional (set to 1 for optional inputs) -->
+
+
+     <!-- Make one 'source' node per output. Sub-nodes:
+          * name (an identifier for the GUI)
+          * type
+          * vlen
+          * optional (set to 1 for optional inputs) -->
+     <source>
+       <name>out</name>
+       <type>float</type>
+     </source>
+     <doc>
+     El algoritmo implementado describe un método para generar vectores de información.
+     M.C. Herrera
+     Ingeniería Electrónica UNIQUINDIO
+     2018
+
+     parámetro:
+     int_vector  Vector -> Vector de información
+
+     Entrada:
+     Ninguna
+
+     Salida:
+     float -> posee un tamaño fijo de 8192 muestras, es una interpolación del vector establecido en el parámetro "Vector".
+
+     Sintaxis:
+     Vector -> Los elementos deben ir entre corchetes [], separados entre sí por comas.
+
+     Ejemplo:
+     Vector            [1,0,1,1,0,0,0,0]
+     tamaño Vector     8
+     tamaño Salida     8192
+     </doc>
+
+
+   </block>

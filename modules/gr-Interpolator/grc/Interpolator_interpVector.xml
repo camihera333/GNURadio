@@ -1,0 +1,41 @@
+<block>
+  <name>interpVector</name>
+  <key>interpVector</key>
+  <category>[Interpolator]</category>
+  <import>import Interpolator</import>
+  <make>Interpolator.interpVector(
+    data=$data,
+)</make>
+  <callback>set_data($data)</callback>
+  <param>
+    <name>Data Size</name>
+    <key>data</key>
+    <value>8</value>
+    <type>raw</type>
+  </param>
+  <sink>
+    <name>in</name>
+    <type>float</type>
+    <vlen>1</vlen>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>float</type>
+    <vlen>1</vlen>
+  </source>
+  <doc>
+      El algoritmo implementado describe un método para generar interpolación.
+     M.C. Herrera
+     Ingeniería Electrónica UNIQUINDIO
+     2018
+
+     parámetro:
+       Data Size -> Tamaño de los datos
+
+     Entrada:
+     Float-> posee un tamaño fijo de 8192 muestras
+
+     Salida:
+     float -> posee un tamaño fijo de 8192 muestras, señal interpolada
+   </doc>
+</block>

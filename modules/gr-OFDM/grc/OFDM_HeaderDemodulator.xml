@@ -1,0 +1,77 @@
+<block>
+  <name>HeaderDemodulator</name>
+  <key>HeaderDemodulator</key>
+  <category>[OFDM]</category>
+  <import>import OFDM</import>
+  <make>OFDM.HeaderDemodulator(
+    fft_tam=$fft_tam,
+    mod_encabezado=$mod_encabezado,
+    occupied_carriers=$occupied_carriers,
+    pilot_carriers=$pilot_carriers,
+    pilot_symbols=$pilot_symbols,
+)</make>
+  <callback>set_fft_tam($fft_tam)</callback>
+  <callback>set_mod_encabezado($mod_encabezado)</callback>
+  <callback>set_occupied_carriers($occupied_carriers)</callback>
+  <callback>set_pilot_carriers($pilot_carriers)</callback>
+  <callback>set_pilot_symbols($pilot_symbols)</callback>
+  <param>
+    <name>fft_size</name>
+    <key>fft_tam</key>
+    <value>64</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>Header_Mod</name>
+    <key>mod_encabezado</key>
+    <value>digital.constellation_bpsk()</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>occupied_carriers</name>
+    <key>occupied_carriers</key>
+    <value>(range(-26, -21) + range(-20, -7) + range(-6, 0) + range(1, 7) + range(8, 21) + range(22, 27),)</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>pilot_carriers</name>
+    <key>pilot_carriers</key>
+    <value>((-21, -7, 7, 21,),)</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>pilot_symbols</name>
+    <key>pilot_symbols</key>
+    <value>((1, 1, 1, -1,),)</value>
+    <type>raw</type>
+  </param>
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+    <vlen>64</vlen>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>byte</type>
+    <vlen>1</vlen>
+  </source>
+  <doc>
+    El algoritmo implementado el demodulador del encabezado.
+ M.C. Herrera
+ Ingeniería Electrónica UNIQUINDIO
+ 2018
+
+ parámetro:
+ Lenght tag -> Etiqueta de longitud
+ Header Modulation -> Constelación de la modulación
+ Occupied Carriers -> Portadoras ocupadas
+ samp_rate-> Tasa de muestreo
+
+ Entrada:
+ in0 -> vector de Complex
+
+ Salida:
+ UChar -> Señal de encabezado demodulada.
+</doc>
+
+</block>

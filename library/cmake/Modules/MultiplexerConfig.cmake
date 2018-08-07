@@ -1,0 +1,30 @@
+INCLUDE(FindPkgConfig)
+PKG_CHECK_MODULES(PC_MULTIPLEXER Multiplexer)
+
+FIND_PATH(
+    MULTIPLEXER_INCLUDE_DIRS
+    NAMES Multiplexer/api.h
+    HINTS $ENV{MULTIPLEXER_DIR}/include
+        ${PC_MULTIPLEXER_INCLUDEDIR}
+    PATHS ${CMAKE_INSTALL_PREFIX}/include
+          /usr/local/include
+          /usr/include
+)
+
+FIND_LIBRARY(
+    MULTIPLEXER_LIBRARIES
+    NAMES gnuradio-Multiplexer
+    HINTS $ENV{MULTIPLEXER_DIR}/lib
+        ${PC_MULTIPLEXER_LIBDIR}
+    PATHS ${CMAKE_INSTALL_PREFIX}/lib
+          ${CMAKE_INSTALL_PREFIX}/lib64
+          /usr/local/lib
+          /usr/local/lib64
+          /usr/lib
+          /usr/lib64
+)
+
+INCLUDE(FindPackageHandleStandardArgs)
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(MULTIPLEXER DEFAULT_MSG MULTIPLEXER_LIBRARIES MULTIPLEXER_INCLUDE_DIRS)
+MARK_AS_ADVANCED(MULTIPLEXER_LIBRARIES MULTIPLEXER_INCLUDE_DIRS)
+

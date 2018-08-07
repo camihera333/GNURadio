@@ -1,0 +1,71 @@
+<block>
+  <name>demodulatorQamBpsk</name>
+  <key>demodulatorQamBpsk</key>
+  <category>[Modulate]</category>
+  <import>import Modulate</import>
+  <make>Modulate.demodulatorQamBpsk(
+    Chips=$Chips,
+    data=$data,
+    M=$M,
+)</make>
+  <callback>set_Chips($Chips)</callback>
+  <callback>set_data($data)</callback>
+  <callback>set_M($M)</callback>
+  <param>
+    <name>Chips</name>
+    <key>Chips</key>
+    <value>4</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>Data Size</name>
+    <key>data</key>
+    <value>8</value>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>Modulation Type</name>
+    <key>M</key>
+    <value>1</value>
+    <type>raw</type>
+  </param>
+  <sink>
+    <name>in</name>
+    <type>float</type>
+    <vlen>1</vlen>
+  </sink>
+  <source>
+    <name>Re</name>
+    <type>float</type>
+    <vlen>1</vlen>
+  </source>
+  <source>
+    <name>out</name>
+    <type>float</type>
+    <vlen>1</vlen>
+  </source>
+  <source>
+    <name>Img</name>
+    <type>float</type>
+    <vlen>1</vlen>
+  </source>
+  <doc>
+    El algoritmo implementado describe la demodulación 16-QAM y BPSK.
+       M.C. Herrera
+       Ingeniería Electrónica UNIQUINDIO
+       2018
+
+       parámetro:
+       Data Size -> Tamaño de los datos
+       Chips -> Tamaño de los chips
+       Modulation Type-> Variable que permite cambiar el tipo de modulación
+       1-> FSK
+       2-> BPSK
+
+       Entrada:
+       in0 -> Float
+
+       Salida:
+       float -> posee un tamaño fijo de 8192 muestras, señal demodulada
+  </doc>
+</block>

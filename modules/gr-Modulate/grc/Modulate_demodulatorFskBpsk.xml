@@ -1,0 +1,41 @@
+<block>
+  <name>demodulatorFskBpsk</name>
+  <key>demodulatorFskBpsk</key>
+  <category>[Modulate]</category>
+  <import>import Modulate</import>
+  <make>Modulate.demodulatorFskBpsk(
+    data=$data,
+)</make>
+  <callback>set_data($data)</callback>
+  <param>
+    <name>Data Size</name>
+    <key>data</key>
+    <value>8</value>
+    <type>raw</type>
+  </param>
+  <sink>
+    <name>in</name>
+    <type>float</type>
+    <vlen>1</vlen>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>float</type>
+    <vlen>1</vlen>
+  </source>
+  <doc>
+    El algoritmo implementado describe la demodulación BPSK y FSK.
+       M.C. Herrera
+       Ingeniería Electrónica UNIQUINDIO
+       2018
+
+       parámetro:
+       Data Size-> tamaño de los datos
+
+       Entrada:
+       in0 -> Float
+
+       Salida:
+       float -> posee un tamaño fijo de 8192 muestras, señal demodulada
+  </doc>
+</block>

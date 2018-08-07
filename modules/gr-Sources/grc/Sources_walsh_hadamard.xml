@@ -1,0 +1,36 @@
+<block>
+  <name>walsh_hadamard</name>
+  <key>walsh_hadamard</key>
+  <category>[Sources]</category>
+  <import>import Sources</import>
+  <make>Sources.walsh_hadamard(
+    Chips=$Chips,
+)</make>
+  <callback>set_Chips($Chips)</callback>
+  <param>
+    <name>Chips</name>
+    <key>Chips</key>
+    <value>4</value>
+    <type>raw</type>
+  </param>
+  <source>
+    <name>out</name>
+    <type>float</type>
+    <vlen>1</vlen>
+  </source>
+  <doc>
+    El algoritmo implementado describe un método para generar la señal de ensanchamiento para DS-SS usando las matrices de Walsh-Hadamard.
+    M.C. Herrera
+    Ingeniería Electrónica UNIQUINDIO
+    2018
+
+    parámetro:
+    chips -> número de chips para el ensanchamiento
+
+    Entrada:
+    Ninguna
+
+    Salida:
+    float -> posee un tamaño fijo de 8192 muestras, código de ensanchamiento de DS-SS
+  </doc>
+</block>
