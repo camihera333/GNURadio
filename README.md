@@ -23,6 +23,6 @@ Luego de completar los pasos anteriores, se procede a acceder a la carpeta modul
 ### $ cmake ..
 ### $ make
 ### $ sudo make install
-### $ sudo ldconfigg
+### $ sudo ldconfig
 
 Finalmente se abre GNURadio-companion y se pueden encontrar los diferentes modulos en la sección de categorias.
